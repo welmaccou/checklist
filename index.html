@@ -94,7 +94,7 @@
         }
         .member-section {
             margin-top: 30px; /* Espaçamento entre a seção do estudante e os membros da família */
-	    margin-bottom: 30px;
+	   
         }
         ul {
             list-style: none;
@@ -464,6 +464,13 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                 printWindow.document.write('</div>');
             }
 
+
+
+document.body.innerHTML += "<br>";
+document.body.innerHTML += "<br>";
+
+		
+
             for (let i = 0; i < familySize; i++) {
                 const memberName = document.getElementById(`member-name-${i}`).value;
                 const memberSituation = document.getElementById(`member-situation-${i}`).value;
@@ -479,6 +486,11 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                     printWindow.document.write('</div>');
                 }
 	    }
+
+document.body.innerHTML += "<br>";
+document.body.innerHTML += "<br>";
+
+		
 if (locacaoImoveis === 'sim' || sitioChacara === 'sim') {
 	printWindow.document.write('<div class="member-section">');
 }
