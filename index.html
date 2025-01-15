@@ -429,6 +429,14 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                 documentsBySituation[studentSituation].forEach(doc => {
                     printWindow.document.write(`<li>${doc}</li>`);
                 });
+
+
+		printWindow.document.write('</ul>');
+                printWindow.document.write('</div>');
+                }
+	    }
+		    
+		    
 				if (studentHealthExpenses === 'sim') {
             printWindow.document.write('<li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
         }
