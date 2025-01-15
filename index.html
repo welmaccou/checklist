@@ -181,7 +181,7 @@
             <option value="aposentado">Aposentado</option>
             <option value="mei">Microempreendedor Individual (MEI)</option>
             <option value="desempregado">Desempregado</option>
-            <option value="beneficiario">Beneficiário</option>
+            <option value="beneficiario">Beneficiário de programas sociais</option>
 	    <option value="estagiario">Estagiário</option>
     	    <option value="produtor">Produtor rural/lavrador</option>
 	    <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
@@ -442,8 +442,17 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
         if (studentTransportScholarship === 'sim') {
             printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
         }
-		     if (locacaoImoveis === 'sim') {
-            printWindow.document.write('<li>( &nbsp; ) Contrato de alugeul de locação</li>');
+		    
+		    
+		    printWindow.document.write('<div class="member-section">');
+                printWindow.document.write(`<h3>Outros documentos</h3>`);
+                printWindow.document.write('<ul>');
+                documentsBySituation[studentSituation].forEach(doc => {
+                    printWindow.document.write(`<li>${doc}</li>`);
+                });
+		    
+		    if (locacaoImoveis === 'sim') {
+            printWindow.document.write('<li>( &nbsp; )  Cópia do (s) contrato (s) de locação e/ou do (s) recibo (s).</li>');
         }
                 printWindow.document.write('</ul>');
                 printWindow.document.write('</div>');
