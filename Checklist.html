@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Documentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        p {
+            margin: 10px 0;
+            color: #555;
+        }
+        .alert {
+            background: #f8f9fa;
+            border-left: 4px solid #007BFF;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0px;
+			margin-top: 20px;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 0px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, button:focus {
+            border-color: #007BFF;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+        button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .instructions {
+            margin-top: 20px;
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #007BFF;
+        }
+        .instructions h2 {
+            margin: 0;
+            color: #007BFF;
+            font-size: 18px;
+        }
+        .member-section h3 {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
+            margin: 0 0 10px 0;
+            border-radius: 4px;
+        }
+        .member-section {
+            margin-top: 30px; /* Espaçamento entre a seção do estudante e os membros da família */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f8f9fa;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 4px solid #007BFF;
+            border-radius: 4px;
+        }
+        .section-title {
+            margin-top: 30px; /* Espaço para as seções */
+            font-size: 20px;
+            font-weight: bold;
+            color: #007BFF;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+        }
+        .spacing {
+            margin-bottom: 20px; /* Espaçamento extra entre as seções */
+        }
+		#student-info label {
+			display: inline-block; /* Faz o label ficar ao lado do input */
+			margin-right: 5px; /* Adiciona um pequeno espaço entre o label e o input */
+		}
+
+		#student-info .input-group {
+			margin-bottom: 0px; /* Espaçamento de 15px entre os inputs */
+			margin-top: 0px;
+		}
+
+		#student-info input {
+			padding: 8px;
+			margin-bottom: 0px; /* Espaçamento adicional entre o input e o próximo */
+			width: 100%; /* Para garantir que os inputs ocuparam todo o espaço disponível */
+		}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checklist de Documentos</h1>
+        <div class="instructions">
+            <h2>Instruções</h2>
+            <p>Para a seleção de estudantes, será realizada a avaliação da situação socioeconômica do solicitante e de sua família, conforme o disposto abaixo. Leia atentamente antes de prosseguir.</p>
+        </div>
+        <p><strong>Definição de Grupo Familiar:</strong> Todas as pessoas que moram com você, compartilham ou não renda e despesas.</p>
+        <p><strong>Regras:</strong> O estudante que declarar não ter renda própria suficiente deverá apresentar documentos da família de origem.</p>
+        
+        <div class="form-group">
+            <label for="family-size">Quantidade de pessoas na família (além do estudante):</label>
+            <input type="number" id="family-size" min="0" placeholder="Digite a quantidade">
+        </div>
+        <button onclick="generateFamilyInputs()">Confirmar</button>
+
+        <div id="family-members"></div>
+    </div>
+
+    <script>
+        function generateFamilyInputs() {
+            const familySize = parseInt(document.getElementById('family-size').value);
+            const familyMembersDiv = document.getElementById('family-members');
+
+            if (isNaN(familySize) || familySize < 0) {
+                alert('Por favor, insira um número válido de pessoas na família.');
+                return;
+            }
+
+            familyMembersDiv.innerHTML = '';
+
+            // Input para o estudante
+            const studentDiv = document.createElement('div');
+            studentDiv.classList.add('form-group');
+            studentDiv.innerHTML = `
+                <h3 class="section-title">Informações do Estudante</h3>
+               <div id="student-info">
+    <div class="input-group">
+        <label for="student-name">Nome do Estudante:</label>
+        <input type="text" id="student-name" name="student-name" required>
+    </div>
+    <div class="input-group">
+        <label for="student-situation">Situação do Estudante:</label>
+        <select id="student-situation" name="student-situation" required>
+            <option value="">-- Escolha uma opção --</option>
+			<option value="assalariado">Assalariado</option>
+            <option value="autonomo">Autônomo</option>
+            <option value="aposentado">Aposentado</option>
+            <option value="mei">MEI</option>
+            <option value="desempregado">Desempregado</option>
+            <option value="beneficiario">Beneficiário</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="student-health-expenses">Possui gastos com saúde?</label>
+        <select id="student-health-expenses" name="student-health-expenses" required>
+            <option value="">-- Escolha uma opção --</option>
+			<option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div class="input-group">
+        <label for="student-education-expenses">Possui gastos com educação?</label>
+        <select id="student-education-expenses" name="student-education-expenses" required>
+            <option value="">-- Escolha uma opção --</option>
+			<option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+    </div>
+    <div class="form-group">
+    <label for="student-housing">Moradia:</label>
+    <select id="student-housing">
+        <option value="">-- Escolha uma opção --</option>
+        <option value="alugada">Alugada</option>
+        <option value="cedida">Cedida</option>
+        <option value="financiada">Financiada</option>
+        <option value="propria">Própria</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="student-single-orphans">É solteiro(a) com pais falecidos?</label>
+    <select id="student-single-orphans">
+        <option value="">-- Escolha uma opção --</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="student-canguru-scholarship">Pretende solicitar a bolsa Canguru?</label>
+    <select id="student-canguru-scholarship">
+        <option value="">-- Escolha uma opção --</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="student-transport-scholarship">Pretende solicitar a bolsa Transporte?</label>
+    <select id="student-transport-scholarship">
+        <option value="">-- Escolha uma opção --</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+</div>
+
+            `;
+            familyMembersDiv.appendChild(studentDiv);
+
+            // Espaçamento entre o estudante e os membros da família
+            const spacingDiv = document.createElement('div');
+            spacingDiv.classList.add('spacing');
+            familyMembersDiv.appendChild(spacingDiv);
+
+            // Inputs para os membros da família
+            for (let i = 0; i < familySize; i++) {
+                const memberDiv = document.createElement('div');
+                memberDiv.classList.add('form-group');
+
+                memberDiv.innerHTML = `
+                    <h3 class="section-title">Membro ${i + 1}</h3>
+                    <label>Nome:</label>
+                    <input type="text" placeholder="Nome do membro da família" id="member-name-${i}" required>
+                    <label for="member-situation-${i}">Situação:</label>
+                    <select id="member-situation-${i}">
+                        <option value="">-- Escolha uma situação --</option>
+                        <option value="assalariado">Assalariado</option>
+                        <option value="autonomo">Autônomo</option>
+                        <option value="aposentado">Aposentado</option>
+                        <option value="mei">MEI</option>
+                        <option value="desempregado">Desempregado</option>
+                        <option value="beneficiario">Beneficiário de Programas Sociais</option>
+                    </select>
+                `;
+                familyMembersDiv.appendChild(memberDiv);
+
+                // Espaçamento entre os membros da família
+                const spacingDivMember = document.createElement('div');
+                spacingDivMember.classList.add('spacing');
+                familyMembersDiv.appendChild(spacingDivMember);
+            }
+
+            const generateChecklistButton = document.createElement('button');
+            generateChecklistButton.textContent = 'Gerar Checklist';
+            generateChecklistButton.onclick = generateChecklist;
+
+            familyMembersDiv.appendChild(generateChecklistButton);
+        }
+
+        function generateChecklist() {
+            const familySize = parseInt(document.getElementById('family-size').value);
+            const studentName = document.getElementById('student-name').value;
+            const studentSituation = document.getElementById('student-situation').value;
+
+const studentHealthExpenses = document.getElementById('student-health-expenses').value;
+    const studentEducationExpenses = document.getElementById('student-education-expenses').value;
+    const studentHousing = document.getElementById('student-housing').value;
+    const studentSingleOrphans = document.getElementById('student-single-orphans').value;
+    const studentCanguruScholarship = document.getElementById('student-canguru-scholarship').value;
+    const studentTransportScholarship = document.getElementById('student-transport-scholarship').value;
+
+
+            const documentsBySituation = {
+                assalariado: [
+                    '(  ) Último contracheque',
+                    '(  ) Declaração de Imposto de Renda (se aplicável)',
+                    '(  ) Extratos bancários dos últimos 3 meses'
+                ],
+                autonomo: [
+                    'Declaração de trabalhador autônomo',
+                    'Extratos bancários dos últimos 3 meses',
+                    'Relatório de contas bancárias (Registrato)'
+                ],
+                aposentado: [
+                    'Extrato de benefício de aposentadoria ou pensão',
+                    'Extratos bancários dos últimos 3 meses'
+                ],
+                mei: [
+                    'Declaração Anual do Simples Nacional (DASN)',
+                    'Extratos bancários dos últimos 3 meses',
+                    'Relatório de contas bancárias (Registrato)'
+                ],
+                desempregado: [
+                    'Comprovante de seguro-desemprego (se aplicável)',
+                    'Termo de rescisão de contrato',
+                    'Declaração de desempregado'
+                ],
+                beneficiario: [
+                    'Comprovante de recebimento de benefício',
+                    'Extratos bancários dos últimos 3 meses'
+                ]
+            };
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write('<html><head><title>Checklist de Documentos</title><style>');
+            printWindow.document.write(`
+                body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                h1 { text-align: center; color: #333; }
+                .instructions h2 { background-color: #007BFF; color: white; padding: 10px; margin: 0; }
+                ul { list-style-type: none; padding: 0; }
+                li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-left: 4px solid #007BFF; }
+                .member-section h3 { background-color: #007BFF; color: white; padding: 10px; margin: 0; }
+            `);
+            printWindow.document.write('</style></head><body>');
+            printWindow.document.write('<h1>Checklist de Documentos</h1>');
+
+            if (studentName && studentSituation) {
+                printWindow.document.write('<div class="instructions">');
+                printWindow.document.write('<h2>Instruções</h2>');
+                printWindow.document.write(`
+                    <p>Para a seleção de estudantes visando o atendimento neste Edital, será realizada a avaliação da situação
+                    socioeconômica do solicitante e de sua família, conforme o disposto:</p>
+                    <p>a) É considerado grupo familiar todas as pessoas que moram com você, que dividem ou não a mesma renda,
+                    eventualmente ampliada por outras pessoas que contribuam para o rendimento ou tenham suas despesas
+                    atendidas por aquela unidade familiar, todas moradoras em um mesmo domicílio.</p>
+                    <p>b) O/a estudante que não resida com os responsáveis pela sua manutenção, deverá apresentar os documentos
+                    comprobatórios de renda daqueles que lhe mantém, e não com quem resida no momento.</p>
+                    <p>c) Caso o grupo familiar informado se restrinja ao/a próprio/a estudante, este/a deverá comprovar renda própria
+                    condizente com seus gastos, padrão de vida e de consumo, sob pena de indeferimento.</p>
+                    <p>d) O/a estudante que se declarar como único membro do grupo familiar e não possuir rendimento próprio
+                    suficiente para a sua subsistência deverá declarar a renda do seu grupo familiar de origem, ainda que residente
+                    em local diverso do seu domicílio.</p>
+                    <p><strong>ATENÇÃO</strong></p>
+                    <p>a) Não é necessário que as declarações estejam autenticadas, mas é preciso que o declarante assine como no
+                    RG, que deve acompanhar as declarações;</p>
+                    <p>b) No caso de extratos bancários emitidos via Internet que não contenha o nome do/a titular da conta, o/a
+                    estudante deverá identificar;</p>
+                    <p>c) Em casos extremos, em que não seja possível apresentar um determinado documento, poderá ser apresentada
+                    uma declaração de ausência, devidamente justificada.</p>
+                `);
+                printWindow.document.write('<div class="member-section">');
+                printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
+                printWindow.document.write('<ul>');
+                documentsBySituation[studentSituation].forEach(doc => {
+                    printWindow.document.write(`<li>${doc}</li>`);
+                });
+				if (studentHealthExpenses === 'sim') {
+            printWindow.document.write('<li>Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas</li>');
+        }
+
+        if (studentEducationExpenses === 'sim') {
+            printWindow.document.write('<li>Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago</li>');
+        }
+
+        if (studentHousing === 'alugada') {
+            printWindow.document.write('<li>Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel</li>');
+        } else if (studentHousing === 'financiada') {
+            printWindow.document.write('<li>Comprovante da prestação do financiamento da casa própria atualizado</li>');
+        } else if (studentHousing === 'cedida') {
+            printWindow.document.write('<li>Declaração de imóvel cedido; certidão de óbito; exame que comprove o tempo de gestação; declaração de gastos com transporte do estudante</li>');
+        }
+
+        if (studentSingleOrphans === 'sim') {
+            printWindow.document.write('<li>Certidão de óbito</li>');
+        }
+
+        if (studentCanguruScholarship === 'sim') {
+            printWindow.document.write('<li>Declaração de intenção de solicitar a bolsa Canguru</li>');
+        }
+
+        if (studentTransportScholarship === 'sim') {
+            printWindow.document.write('<li>Declaração de gastos com transporte do estudante</li>');
+        }
+                printWindow.document.write('</ul>');
+                printWindow.document.write('</div>');
+            }
+
+            for (let i = 0; i < familySize; i++) {
+                const memberName = document.getElementById(`member-name-${i}`).value;
+                const memberSituation = document.getElementById(`member-situation-${i}`).value;
+
+                if (memberName && memberSituation) {
+                    printWindow.document.write('<div class="member-section">');
+                    printWindow.document.write(`<h3>Documentos de ${memberName}</h3>`);
+                    printWindow.document.write('<ul>');
+                    documentsBySituation[memberSituation].forEach(doc => {
+                        printWindow.document.write(`<li>${doc}</li>`);
+                    });
+                    printWindow.document.write('</ul>');
+                    printWindow.document.write('</div>');
+                }
+            }
+
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+        }
+    </script>
+</body>
+</html>
