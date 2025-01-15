@@ -463,10 +463,15 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                     printWindow.document.write('</div>');
                 }
             }
-printWindow.document.write('<div class="member-section">');
-                printWindow.document.write(`<h3>Outros documentos</h3>`);
-                printWindow.document.write('<ul>');    	    
-		    
+if (locacaoImoveis === 'sim') {
+	printWindow.document.write('<div class="member-section">');
+}
+               if (locacaoImoveis === 'sim') {
+		       printWindow.document.write(`<h3>Outros documentos</h3>`);
+		       }
+                  if (locacaoImoveis === 'sim') {
+			  printWindow.document.write('<ul>');    	    
+		  }
 		    if (locacaoImoveis === 'sim') {
             printWindow.document.write('<li>( &nbsp; )  Cópia do (s) contrato (s) de locação e/ou do (s) recibo (s).</li>');
         }
