@@ -237,6 +237,13 @@
         <option value="nao">Não</option>
     </select>
 </div>
+	<label for="locacao-imoveis">Você ou alguem do núcleo familiar possui renda proveniente de locação de imóveis?</label>
+	    <select id="locacao-imoveis">
+	        <option value="">-- Escolha uma opção --</option>
+	        <option value="sim">Sim</option>
+	        <option value="nao">Não</option>
+	    </select>
+	</div>
 
             `;
             familyMembersDiv.appendChild(studentDiv);
@@ -295,6 +302,7 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
     const studentSingleOrphans = document.getElementById('student-single-orphans').value;
     const studentCanguruScholarship = document.getElementById('student-canguru-scholarship').value;
     const studentTransportScholarship = document.getElementById('student-transport-scholarship').value;
+    const locacaoImoveis = document.getElementById('locacao-imoveis').value;
 
     const documentsBySituation = {
 	    assalariado: [
@@ -433,6 +441,9 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
 
         if (studentTransportScholarship === 'sim') {
             printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
+        }
+		     if (locacaoImoveis === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Contrato de alugeul de locação</li>');
         }
                 printWindow.document.write('</ul>');
                 printWindow.document.write('</div>');
