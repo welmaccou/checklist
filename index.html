@@ -442,14 +442,7 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
         if (studentTransportScholarship === 'sim') {
             printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
         }
-		    
-		    
-		    printWindow.document.write('<div class="member-section">');
-                printWindow.document.write(`<h3>Outros documentos</h3>`);
-                printWindow.document.write('<ul>');
-                documentsBySituation[studentSituation].forEach(doc => {
-                    printWindow.document.write(`<li>${doc}</li>`);
-                });
+		    	    
 		    
 		    if (locacaoImoveis === 'sim') {
             printWindow.document.write('<li>( &nbsp; )  Cópia do (s) contrato (s) de locação e/ou do (s) recibo (s).</li>');
