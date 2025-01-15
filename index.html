@@ -256,8 +256,8 @@
                     <select id="member-situation-${i}">
                         <option value="">-- Escolha uma situação --</option>
                         <option value="assalariado">Assalariado</option>
-                        <option value="autonomo">Autônomo</option>
-                        <option value="aposentado">Aposentado</option>
+                        <option value="autonomo">Autônomo/profissional liberal/trabalhador informal</option>
+                        <option value="aposentado">Aposentado ou pensionista</option>
                         <option value="mei">MEI</option>
                         <option value="desempregado">Desempregado</option>
                         <option value="beneficiario">Beneficiário de Programas Sociais</option>
@@ -298,14 +298,19 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                     '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
 	            '( &nbsp; ) Comprovantes recentes de luz, água (se for o caso), condomínio (se for o caso) e internet (se for o caso).',
                     '( &nbsp; ) Último contracheque.',
-                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – se a pessoa não declarou, não é necessário apresentar.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
                     '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN).',
 		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses.'
                 ],
                 autonomo: [
-                    'Declaração de trabalhador autônomo',
-                    'Extratos bancários dos últimos 3 meses',
-                    'Relatório de contas bancárias (Registrato)'
+                    '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente poder ser certidão de nascimento).',
+                    '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+                    '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+	            '( &nbsp; ) Comprovantes recentes de luz, água (se for o caso), condomínio (se for o caso) e internet (se for o caso).',
+		    '( &nbsp; ) Declaração de trabalhador autônomo, liberal ou informal.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN).',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses.'
                 ],
                 aposentado: [
                     'Extrato de benefício de aposentadoria ou pensão',
@@ -360,31 +365,31 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                     printWindow.document.write(`<li>${doc}</li>`);
                 });
 				if (studentHealthExpenses === 'sim') {
-            printWindow.document.write('<li>Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
         }
 
         if (studentEducationExpenses === 'sim') {
-            printWindow.document.write('<li>Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago.</li>');
         }
 
         if (studentHousing === 'alugada') {
-            printWindow.document.write('<li>Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel.</li>');
         } else if (studentHousing === 'financiada') {
-            printWindow.document.write('<li>Comprovante da prestação do financiamento da casa própria atualizado.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Comprovante da prestação do financiamento da casa própria atualizado.</li>');
         } else if (studentHousing === 'cedida') {
-            printWindow.document.write('<li>Declaração de imóvel cedido.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Declaração de imóvel cedido.</li>');
         }
 
         if (studentSingleOrphans === 'sim') {
-            printWindow.document.write('<li>Certidão de óbito do pai/mãe.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Certidão de óbito do pai/mãe.</li>');
         }
 
         if (studentCanguruScholarship === 'sim') {
-            printWindow.document.write('<li>Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
         }
 
         if (studentTransportScholarship === 'sim') {
-            printWindow.document.write('<li>Declaração de gastos com transporte do estudante.</li>');
+            printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
         }
                 printWindow.document.write('</ul>');
                 printWindow.document.write('</div>');
