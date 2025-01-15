@@ -467,7 +467,17 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
 		    
                 printWindow.document.write('</ul>');
                 printWindow.document.write('</div>');
-		printWindow.document.write('<li>( &nbsp; ) fazendo um texte</li>');    
+		printWindow.document.write(`
+    <li style="
+        background-color: white; 
+        color: white; 
+        border: 1px solid white; 
+        list-style-type: none; 
+        padding: 5px; 
+        margin: 5px 0;">
+        ( &nbsp; ) fazendo um teste
+    </li>
+`);    
 		    
             }
 	
