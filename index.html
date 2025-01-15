@@ -293,42 +293,60 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
 
             const documentsBySituation = {
                 assalariado: [
-                    '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente poder ser certidão de nascimento).',
+                    '( &nbsp; ) Documentos de identificação e CPF.',
                     '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
                     '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-	            '( &nbsp; ) Comprovantes recentes de luz, água (se for o caso), condomínio (se for o caso) e internet (se for o caso).',
-                    '( &nbsp; ) Último contracheque.',
-                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN).',
-		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses.'
+	            '( &nbsp; ) Último contracheque.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
                 ],
                 autonomo: [
+                    '( &nbsp; ) Documentos de identificação e CPF.',
+                    '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+                    '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+	            '( &nbsp; ) Declaração de trabalhador autônomo, liberal ou informal, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+                ],
+                aposentado: [
                     '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente poder ser certidão de nascimento).',
                     '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
                     '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-	            '( &nbsp; ) Comprovantes recentes de luz, água (se for o caso), condomínio (se for o caso) e internet (se for o caso).',
-		    '( &nbsp; ) Declaração de trabalhador autônomo, liberal ou informal.',
-                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN).',
-		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses.'
-                ],
-                aposentado: [
-                    'Extrato de benefício de aposentadoria ou pensão',
-                    'Extratos bancários dos últimos 3 meses'
+	            '( &nbsp; ) Extrato mais recente do pagamento de benefício (Aposentadoria, Pensão por Morte ou Alimentícia).',
+		    '( &nbsp; ) Se pensão alimentícia informal: apresentar declaração de pensão alimentícia do responsável que conste o valor recebido, com cópia do RG do declarante, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
                 ],
                 mei: [
-                    'Declaração Anual do Simples Nacional (DASN)',
-                    'Extratos bancários dos últimos 3 meses',
-                    'Relatório de contas bancárias (Registrato)'
+                    '( &nbsp; ) Documentos de identificação e CPF.',
+                    '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+                    '( &nbsp; ) Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+		    '( &nbsp; ) Declaração Anual do Simples Nacional (DASN).',
+                    '( &nbsp; ) Declaração de MEI, modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+                ],
                 ],
                 desempregado: [
-                    'Comprovante de seguro-desemprego (se aplicável)',
-                    'Termo de rescisão de contrato',
-                    'Declaração de desempregado'
+                    '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente poder ser certidão de nascimento).',
+                    '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+                    '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato (s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+	            '( &nbsp; ) Comprovante de seguro-desemprego – se estiver recebendo.',
+		    '( &nbsp; ) Termo de rescisão de contrato – para demissões que ocorreram nos últimos 6 meses.',
+		    '( &nbsp; ) Declaração de desempregado. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+                    '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+			
                 ],
                 beneficiario: [
-                    'Comprovante de recebimento de benefício',
-                    'Extratos bancários dos últimos 3 meses'
+                    '( &nbsp; ) Comprovante atual de recebimento do benefício constando o nome e valor',
+                    '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+		    '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
                 ]
             };
 
