@@ -424,7 +424,14 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                     <p>c) Em casos extremos, em que não seja possível apresentar um determinado documento, poderá ser apresentada
                     uma declaração de ausência, devidamente justificada.</p>
                 `);
-                printWindow.document.write('<div class="member-section">');
+                
+		    
+		    
+		    
+		    for (let i = 0; i < familySize; i++) {
+                   
+		    
+		    printWindow.document.write('<div class="member-section">');
                 printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
                 printWindow.document.write('<ul>');
                 documentsBySituation[studentSituation].forEach(doc => {
@@ -463,7 +470,7 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
                 printWindow.document.write('</ul>');
                 printWindow.document.write('</div>');
             }
-
+	}
 
 
 document.body.innerHTML += "<br>";
