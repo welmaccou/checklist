@@ -182,6 +182,9 @@
             <option value="mei">Microempreendedor Individual (MEI)</option>
             <option value="desempregado">Desempregado</option>
             <option value="beneficiario">Beneficiário</option>
+	    <option value="estagiario">Estagiário</option>
+    	    <option value="produtor">Produtor rural/lavrador</option>
+	    <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
         </select>
     </div>
     <div class="input-group">
@@ -262,6 +265,8 @@
                         <option value="desempregado">Desempregado</option>
                         <option value="beneficiario">Beneficiário de Programas Sociais</option>
 			<option value="estagiario">Estagiário</option>
+    	    		<option value="produtor">Produtor rural/lavrador</option>
+	    		<option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
                     </select>
                 `;
                 familyMembersDiv.appendChild(memberDiv);
@@ -348,7 +353,13 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
 	    ],
 
 	   estagiario: [
-	        '( &nbsp; ) Comprovante atual de recebimento do benefício constando o nome e valor.',
+	        '( &nbsp; ) Contrato de estágio ou termo de compromisso de bolsa, com período de vigência.',
+	        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+	        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+	    ],
+	   produtor: [
+	        '( &nbsp; ) Declaração de Produtor Rural. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+	        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2024, ano base 2023, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
 	        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
 	        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
 	    ]
