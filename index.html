@@ -237,8 +237,18 @@
         <option value="nao">Não</option>
     </select>
 </div>
-	<label for="locacao-imoveis">Você ou alguem do núcleo familiar possui renda proveniente de locação de imóveis?</label>
+<div class="form-group">	
+	 <label for="locacao-imoveis">Você ou alguem do núcleo familiar possui renda proveniente de locação de imóveis?</label>
 	    <select id="locacao-imoveis">
+	        <option value="">-- Escolha uma opção --</option>
+	        <option value="sim">Sim</option>
+	        <option value="nao">Não</option>
+	    </select>
+	</div>
+
+ <div class="form-group">	
+	 <label for="sitio-chacara">Você ou alguem do núcleo familiar é proprietário de sítio(s), chácaras ou fazenda(s)?</label>
+	    <select id="sitio-chacara">
 	        <option value="">-- Escolha uma opção --</option>
 	        <option value="sim">Sim</option>
 	        <option value="nao">Não</option>
@@ -303,6 +313,7 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
     const studentCanguruScholarship = document.getElementById('student-canguru-scholarship').value;
     const studentTransportScholarship = document.getElementById('student-transport-scholarship').value;
     const locacaoImoveis = document.getElementById('locacao-imoveis').value;
+    const sitioChacara = document.getElementById('sitio-chacara').value;
 
     const documentsBySituation = {
 	    assalariado: [
@@ -473,8 +484,12 @@ if (locacaoImoveis === 'sim') {
 			  printWindow.document.write('<ul>');    	    
 		  }
 		    if (locacaoImoveis === 'sim') {
-            printWindow.document.write('<li>( &nbsp; )  Cópia do (s) contrato (s) de locação e/ou do (s) recibo (s).</li>');
+            printWindow.document.write('<li>( &nbsp; )  Cópia do(s) contrato(s) de locação e/ou do(s) recibo(s) dos imóveis alugados de membro(os) da família.</li>');
         }
+		if (sitioChacara === 'sim') {
+			        printWindow.document.write('<li>( &nbsp; )  Escritura ou termo de uso emitido pelo INCRA das chácara(s), sitio(os) ou fazenda(as) de membro(os) da família.</li>');
+			 }
+		
             printWindow.document.write('</body></html>');
             printWindow.document.close();
         }
