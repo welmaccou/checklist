@@ -428,66 +428,46 @@ const studentHealthExpenses = document.getElementById('student-health-expenses')
 		    
 		    
 		    
-		   for (let i = 0; i < familySize; i++) {
-    printWindow.document.write('<div class="member-section">');
-    printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
-    printWindow.document.write('<ul>');
+		                  		     
+		    printWindow.document.write('<div class="member-section">');
+                printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
+                printWindow.document.write('<ul>');
+                documentsBySituation[studentSituation].forEach(doc => {
+                    printWindow.document.write(`<li>${doc}</li>`);
+                });
+                 		    		    
+				if (studentHealthExpenses === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
+        }
 
-    // Adiciona os documentos padrão baseados na situação
-    documentsBySituation[studentSituation].forEach(doc => {
-        printWindow.document.write(`<li>${doc}</li>`);
-    });
+        if (studentEducationExpenses === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago.</li>');
+        }
 
-    // Verifica despesas de saúde
-    if (studentHealthExpenses === 'sim') {
-        printWindow.document.write(`
-            <li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), 
-            degenerativa ou deficiência e comprovante de despesas.</li>
-        `);
-    }
+        if (studentHousing === 'alugada') {
+            printWindow.document.write('<li>( &nbsp; ) Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel.</li>');
+        } else if (studentHousing === 'financiada') {
+            printWindow.document.write('<li>( &nbsp; ) Comprovante da prestação do financiamento da casa própria atualizado.</li>');
+        } else if (studentHousing === 'cedida') {
+            printWindow.document.write('<li>( &nbsp; ) Declaração de imóvel cedido.</li>');
+        }
 
-    // Verifica despesas de educação
-    if (studentEducationExpenses === 'sim') {
-        printWindow.document.write(`
-            <li>( &nbsp; ) Comprovante mais recente de mensalidade(s) escolar(es). 
-            Não é necessário estar pago.</li>
-        `);
-    }
+        if (studentSingleOrphans === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Certidão de óbito do pai/mãe.</li>');
+        }
 
-    // Verifica situação de moradia
-    if (studentHousing === 'alugada') {
-        printWindow.document.write(`
-            <li>( &nbsp; ) Contrato de locação, recibo de pagamento do aluguel. 
-            Na inexistência desses documentos, poderá ser apresentada declaração do locador 
-            com informações do imóvel e valor do aluguel.</li>
-        `);
-    } else if (studentHousing === 'financiada') {
-        printWindow.document.write(`
-            <li>( &nbsp; ) Comprovante da prestação do financiamento da casa própria atualizado.</li>
-        `);
-    } else if (studentHousing === 'cedida') {
-        printWindow.document.write(`
-            <li>( &nbsp; ) Declaração de imóvel cedido.</li>
-        `);
-    }
+        if (studentCanguruScholarship === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
+        }
 
-    // Verifica outras condições
-    if (studentSingleOrphans === 'sim') {
-        printWindow.document.write('<li>( &nbsp; ) Certidão de óbito do pai/mãe.</li>');
-    }
-
-    if (studentCanguruScholarship === 'sim') {
-        printWindow.document.write('<li>( &nbsp; ) Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
-    }
-
-    if (studentTransportScholarship === 'sim') {
-        printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
-    }
-
-    printWindow.document.write('</ul>');
-    printWindow.document.write('</div>');
-}
-
+        if (studentTransportScholarship === 'sim') {
+            printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
+        }
+		
+		    
+                printWindow.document.write('</ul>');
+                printWindow.document.write('</div>');
+            }
 	
 
 
