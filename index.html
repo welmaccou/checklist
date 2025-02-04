@@ -1,632 +1,656 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checklist de documentos - Cadastro Único UFG</title>
-    <style>
-        body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    line-height: 1.8;
-    background-image: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
-    min-height: 100vh;
-}
-
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
-    border-radius: 16px;
-    backdrop-filter: blur(8px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.container:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
-}
-
-h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 10px;
-    font-size: 1.7rem;
-    letter-spacing: -0.5px;
-    background: linear-gradient(45deg, #007BFF, #00C2FF);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
-    text-transform: uppercase;
-}
-
-
-p {
-    margin: 10px 0;
-    color: #555;
-    font-size: 1.05rem;
-}
-
-.alert {
-    background: rgba(248, 249, 250, 0.95);
-    border-left: 6px solid #007BFF;
-    padding: 16px 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    color: #333;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    animation: slideIn 0.3s ease-out;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-10px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-.form-group, .form-group2 {
-    margin-bottom: 0px;
-    transition: opacity 0.3s ease;
-}
-
-label {
-    font-weight: 600;
-    display: block;
-    margin-bottom: 0px;
-    margin-top: 20px;
-    color: #2d3436;
-    font-size: 0.95rem;
-    letter-spacing: 0.3px;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 0px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-input:focus, select:focus, button:focus {
-    border-color: #007BFF;
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
-}
-
-button {
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    padding: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border-radius: 8px;
-	margin-top: 15px;
-}
-
-button:hover {
-    background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
-}
-
-.instructions {
-    margin-top: 20px;
-    background: rgba(240, 248, 255, 0.95);
-    padding: 20px;
-    border-radius: 8px;
-    border-left: 6px solid #007BFF;
-    backdrop-filter: blur(4px);
-}
-
-.instructionsh2 {
-            margin: 0;
-            color: #007BFF;
-            font-size: 18px;
-			
-}			
-
-.member-section h3 {
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-    color: white;
-    padding: 14px;
-    margin: 0 0 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1);
-    font-size: 1.2rem;
-}
-
-.member-section {
-    margin-top: 30px;
-}
-
-ul li {
-    background: rgba(248, 249, 250, 0.95);
-    margin: 8px 0;
-    padding: 14px;
-    border-left: 4px solid #007BFF;
-    border-radius: 8px;
-    transition: transform 0.2s ease;
-}
-
-ul li:hover {
-    transform: translateX(4px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-}
-
-.section-title {
-    margin-top: 30px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #007BFF;
-    border-bottom: 3px solid;
-    border-image: linear-gradient(90deg, #007BFF 0%, rgba(0, 123, 255, 0) 95%) 1;
-    padding-bottom: 8px;
-}
-
-/* Melhorias específicas para elementos interativos */
-.custom-select {
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 8px;
-    background: white;
-    margin-top: 5px;
-    transition: all 0.3s ease;
-}
-
-.custom-option {
-    padding: 10px;
-    border-radius: 6px;
-    margin: 4px 0;
-	border: 2px solid rgba(0, 86, 179, 0.1);
-}
-
-.custom-option:hover {
-    background: rgba(0, 123, 255, 0.08);
-    transform: scale(1.01);
-	border: 2px solid rgba(0, 123, 255, 0.08);
-}
-
-.custom-option.selected {
-    background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
-    color: white;
-    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
-	border: 2px solid rgba(0, 123, 255, 1);
-}
-
-#student-info input {
-    padding: 10px;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-#student-info input:focus {
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
-}
-
-/* Efeitos de transição suave */
-* {
-    scroll-behavior: smooth;
-}
-
-.hidden-select {
-            display: none;
-        }
-		
-		
-		.select-label {
-            margin-bottom: 5px;
-            display: block;
-            color: #555;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checklist de documentos - Cadastro Único UFG</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      line-height: 1.8;
+      background-image: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.04);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #007BFF;
+      margin-bottom: 10px;
+      font-size: 1.7rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(45deg, #007BFF, #00C2FF);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 123, 255, 0.1);
+      text-transform: uppercase;
+    }
+    
+    p {
+      margin: 10px 0;
+      color: #555;
+      font-size: 1.05rem;
+    }
+    
+    .alert {
+      background: rgba(248, 249, 250, 0.95);
+      border-left: 6px solid #007BFF;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      color: #333;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from { transform: translateX(-10px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .form-group, .form-group2 {
+      margin-bottom: 0px;
+      transition: opacity 0.3s ease;
+    }
+    
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0px;
+      margin-top: 20px;
+      color: #2d3436;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+    }
+    
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 0px;
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    input:focus, select:focus, button:focus {
+      border-color: #007BFF;
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+    }
+    
+    button {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      padding: 14px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    
+    button:hover {
+      background: linear-gradient(135deg, #0056b3 0%, #003d80 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    }
+    
+    .instructions {
+      margin-top: 20px;
+      background: rgba(240, 248, 255, 0.95);
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 6px solid #007BFF;
+      backdrop-filter: blur(4px);
+    }
+    
+    .instructionsh2 {
+      margin: 0;
+      color: #007BFF;
+      font-size: 18px;
+    }
+    
+    .member-section h3 {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      color: white;
+      padding: 14px;
+      margin: 0 0 15px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 123, 255, 0.1);
+      font-size: 1.2rem;
+    }
+    
+    .member-section {
+      margin-top: 30px;
+    }
+    
+    ul li {
+      background: rgba(248, 249, 250, 0.95);
+      margin: 8px 0;
+      padding: 14px;
+      border-left: 4px solid #007BFF;
+      border-radius: 8px;
+      transition: transform 0.2s ease;
+    }
+    
+    ul li:hover {
+      transform: translateX(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+    
+    .section-title {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #007BFF;
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, #007BFF 0%, rgba(0, 123, 255, 0) 95%) 1;
+      padding-bottom: 8px;
+    }
+    
+    /* Melhorias específicas para elementos interativos */
+    .custom-select {
+      border: 2px solid #e9ecef;
+      border-radius: 8px;
+      padding: 8px;
+      background: white;
+      margin-top: 5px;
+      transition: all 0.3s ease;
+    }
+    
+    .custom-option {
+      padding: 10px;
+      border-radius: 6px;
+      margin: 4px 0;
+      border: 2px solid rgba(0, 86, 179, 0.1);
+    }
+    
+    .custom-option:hover {
+      background: rgba(0, 123, 255, 0.08);
+      transform: scale(1.01);
+      border: 2px solid rgba(0, 123, 255, 0.08);
+    }
+    
+    .custom-option.selected {
+      background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%);
+      color: white;
+      box-shadow: 0 2px 6px rgba(0, 123, 255, 0.2);
+      border: 2px solid rgba(0, 123, 255, 1);
+    }
+    
+    #student-info input {
+      padding: 10px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    
+    #student-info input:focus {
+      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+    
+    /* Efeitos de transição suave */
+    * {
+      scroll-behavior: smooth;
+    }
+    
+    .hidden-select {
+      display: none;
+    }
+    
+    .select-label {
+      margin-bottom: 5px;
+      display: block;
+      color: #555;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Checklist de Documentos - Cadastro Único UFG</h1>
-        <div class="instructions">
-           <h2 class="instructionsh2"><strong>Atenção</strong></h2>
-		   <p>Este gerador de checklist visa facilitar a identificação dos documentos necessários para inscrição no Cadastro Único de Bolsas da UFG, considerando a realidade socioeconômica de cada estudante, no entanto, <strong>não substitui a leitura cuidadosa da Relação de Documentos do edital.</strong></p>
-        </div>
-        <p><strong>Definição de Grupo Familiar:</strong> é considerado grupo familiar todas as pessoas que moram com você, que dividem ou não a mesma renda, eventualmente ampliada por outras pessoas que contribuam para o rendimento ou tenham suas despesas atendidas por aquela unidade familiar, todas moradoras em um mesmo domicílio.</p>
-        <p><strong>Importante:</strong> o/a estudante que se define como único membro do grupo familiar e não possue rendimento próprio suficiente para a sua subsistência deverá informar o grupo familiar de origem, ainda que residente em local diverso do seu domicílio.</p>
-     
-        <div class="form-group2">
-            <label for="family-size">Quantidade de pessoas no grupo familiar (além do estudante):</label>
-            <input type="number" id="family-size" min="0" placeholder="Digite a quantidade">
-        </div>
-        <button onclick="generateFamilyInputs()">Confirmar</button>
-
-        <div id="family-members"></div>
+  <div class="container">
+    <h1>Checklist de Documentos - Cadastro Único UFG</h1>
+    <div class="instructions">
+      <h2 class="instructionsh2"><strong>Atenção</strong></h2>
+      <p>Este gerador de checklist visa facilitar a identificação dos documentos necessários para inscrição no Cadastro Único de Bolsas da UFG, considerando a realidade socioeconômica de cada estudante, no entanto, <strong>não substitui a leitura cuidadosa da Relação de Documentos do edital.</strong></p>
     </div>
+    <p><strong>Definição de Grupo Familiar:</strong> é considerado grupo familiar todas as pessoas que moram com você, que dividem ou não a mesma renda, eventualmente ampliada por outras pessoas que contribuam para o rendimento ou tenham suas despesas atendidas por aquela unidade familiar, todas moradoras em um mesmo domicílio.</p>
+    <p><strong>Importante:</strong> o/a estudante que se define como único membro do grupo familiar e não possue rendimento próprio suficiente para a sua subsistência deverá informar o grupo familiar de origem, ainda que residente em local diverso do seu domicílio.</p>
+  
+    <div class="form-group2">
+      <label for="family-size">Quantidade de pessoas no grupo familiar (além do estudante):</label>
+      <input type="number" id="family-size" min="0" placeholder="Digite a quantidade">
+    </div>
+    <button onclick="generateFamilyInputs()">Confirmar</button>
 
-    <script>
-        function createCustomSelect(originalSelect) {
-            const wrapper = document.createElement('div');
-            wrapper.className = 'custom-select';
-            
-            const label = document.createElement('div');
-            label.className = 'select-label';
-            label.textContent = originalSelect.dataset.label;
-            wrapper.appendChild(label);
-            
-            originalSelect.querySelectorAll('option').forEach((option, index) => {
-                if (index === 0 && option.value === '') return;
-                
-                const div = document.createElement('div');
-                div.className = 'custom-option';
-                div.textContent = option.textContent;
-                div.dataset.value = option.value;
-                
-                if (option.selected) div.classList.add('selected');
-                
-                div.addEventListener('click', () => {
-                    div.classList.toggle('selected');
-                    const option = originalSelect.querySelector(`option[value="${div.dataset.value}"]`);
-                    option.selected = !option.selected;
-                });
-                
-                wrapper.appendChild(div);
+    <div id="family-members"></div>
+  </div>
+
+  <!-- Biblioteca jsPDF para exportar como PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function createCustomSelect(originalSelect) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'custom-select';
+      
+      const label = document.createElement('div');
+      label.className = 'select-label';
+      label.textContent = originalSelect.dataset.label;
+      wrapper.appendChild(label);
+      
+      originalSelect.querySelectorAll('option').forEach((option, index) => {
+        if (index === 0 && option.value === '') return;
+        
+        const div = document.createElement('div');
+        div.className = 'custom-option';
+        div.textContent = option.textContent;
+        div.dataset.value = option.value;
+        
+        if (option.selected) div.classList.add('selected');
+        
+        div.addEventListener('click', () => {
+          div.classList.toggle('selected');
+          const optionEl = originalSelect.querySelector(`option[value="${div.dataset.value}"]`);
+          optionEl.selected = !optionEl.selected;
+        });
+        
+        wrapper.appendChild(div);
+      });
+      
+      originalSelect.parentNode.insertBefore(wrapper, originalSelect);
+      originalSelect.classList.add('hidden-select');
+    }
+    
+    function generateFamilyInputs() {
+      const familySize = parseInt(document.getElementById('family-size').value);
+      const familyMembersDiv = document.getElementById('family-members');
+  
+      if (isNaN(familySize) || familySize < 0) {
+        alert('Por favor, insira um número de pessoas na família. Caso o estudante seja o único membro do grupo familiar, colocar o valor 0 (zero).');
+        return;
+      }
+  
+      familyMembersDiv.innerHTML = '';
+  
+      const studentDiv = document.createElement('div');
+      studentDiv.classList.add('form-group');
+      studentDiv.innerHTML = `
+        <h3 class="section-title">Informações do Estudante</h3>
+        <div id="student-info">
+          <div class="input-group">
+            <label for="student-name">Nome do Estudante:</label>
+            <input type="text" id="student-name" name="student-name" required>
+          </div>
+          <div class="input-group">
+            <label>Situação do Estudante:</label>
+            <select id="student-situation" multiple required data-label="Selecione todas as situações aplicáveis (clique para selecionar)">
+              <option value="assalariado">Assalariado</option>
+              <option value="autonomo">Autônomo/profissional liberal/trabalhador informal</option>
+              <option value="aposentado">Aposentado ou pensionista</option>
+              <option value="mei">Microempreendedor Individual (MEI)</option>
+              <option value="desempregado">Desempregado</option>
+              <option value="beneficiario">Beneficiário de programas sociais (Bolsa Família, BPC, outros)</option>
+              <option value="estagiario">Estagiário</option>
+              <option value="produtor">Produtor rural/lavrador</option>
+              <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="student-health-expenses">Possui despesas com saúde?</label>
+            <select id="student-health-expenses" name="student-health-expenses" required>
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="student-education-expenses">Possui despesas com educação?</label>
+            <select id="student-education-expenses" name="student-education-expenses" required>
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="student-housing">Moradia:</label>
+            <select id="student-housing">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="alugada">Alugada</option>
+              <option value="cedida">Cedida</option>
+              <option value="financiada">Financiada</option>
+              <option value="propria">Própria</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="student-single-orphans">É solteiro(a) com pais falecidos?</label>
+            <select id="student-single-orphans">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="student-canguru-scholarship">Pretende solicitar a bolsa Canguru?</label>
+            <select id="student-canguru-scholarship">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="student-transport-scholarship">Pretende solicitar a bolsa Transporte?</label>
+            <select id="student-transport-scholarship">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="form-group">  
+            <label for="locacao-imoveis">Você ou alguem do núcleo familiar possui renda proveniente de locação de imóveis?</label>
+            <select id="locacao-imoveis">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+          <div class="form-group">  
+            <label for="sitio-chacara">Você ou alguem do núcleo familiar é proprietário de sítio(s), chácaras ou fazenda(s)?</label>
+            <select id="sitio-chacara">
+              <option value="">-- Escolha uma opção --</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+            </select>
+          </div>
+        </div>
+      `;
+      createCustomSelect(studentDiv.querySelector('#student-situation'));
+      familyMembersDiv.appendChild(studentDiv);
+  
+      const spacingDiv = document.createElement('div');
+      spacingDiv.classList.add('spacing');
+      familyMembersDiv.appendChild(spacingDiv);
+  
+      for (let i = 0; i < familySize; i++) {
+        const memberDiv = document.createElement('div');
+        memberDiv.classList.add('form-group');
+  
+        memberDiv.innerHTML = `
+          <h3 class="section-title">Membro ${i + 1}</h3>
+          <label>Nome:</label>
+          <input type="text" placeholder="Nome do membro da família" id="member-name-${i}" required>
+          <label>Situação:</label>
+          <select id="member-situation-${i}" multiple data-label="Selecione todas as situações aplicáveis (clique para selecionar)">
+            <option value="assalariado">Assalariado</option>
+            <option value="autonomo">Autônomo/profissional liberal/trabalhador informal</option>
+            <option value="aposentado">Aposentado ou pensionista</option>
+            <option value="mei">Microempreendedor Individual (MEI)</option>
+            <option value="desempregado">Desempregado</option>
+            <option value="beneficiario">Beneficiário de Programas Sociais (Bolsa Família, BPC, outros)</option>
+            <option value="estagiario">Estagiário</option>
+            <option value="produtor">Produtor rural/lavrador</option>
+            <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
+          </select>
+        `;
+        createCustomSelect(memberDiv.querySelector(`#member-situation-${i}`));
+        familyMembersDiv.appendChild(memberDiv);
+  
+        const spacingDivMember = document.createElement('div');
+        spacingDivMember.classList.add('spacing');
+        familyMembersDiv.appendChild(spacingDivMember);
+      }
+  
+      const generateChecklistButton = document.createElement('button');
+      generateChecklistButton.textContent = 'Gerar Checklist';
+      generateChecklistButton.onclick = generateChecklist;
+  
+      familyMembersDiv.appendChild(generateChecklistButton);
+    }
+    
+    const documentsBySituation = {
+      assalariado: [
+        '( &nbsp; ) Documentos de identificação e CPF.',
+        '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+        '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+        '( &nbsp; ) Último contracheque.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      autonomo: [
+        '( &nbsp; ) Documentos de identificação e CPF.',
+        '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+        '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+        '( &nbsp; ) Declaração de trabalhador autônomo, liberal ou informal, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      aposentado: [
+        '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente pode ser certidão de nascimento).',
+        '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+        '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+        '( &nbsp; ) Extrato mais recente do pagamento de benefício (Aposentadoria, Pensão por Morte ou Alimentícia).',
+        '( &nbsp; ) Se pensão alimentícia informal: apresentar declaração de pensão alimentícia do responsável que conste o valor recebido, com cópia do RG do declarante, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      mei: [
+        '( &nbsp; ) Documentos de identificação e CPF.',
+        '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+        '( &nbsp; ) Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+        '( &nbsp; ) Declaração Anual do Simples Nacional (DASN).',
+        '( &nbsp; ) Declaração de MEI, modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      desempregado: [
+        '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente pode ser certidão de nascimento).',
+        '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
+        '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
+        '( &nbsp; ) Comprovante de seguro-desemprego – se estiver recebendo.',
+        '( &nbsp; ) Termo de rescisão de contrato – para demissões que ocorreram nos últimos 6 meses.',
+        '( &nbsp; ) Declaração de desempregado. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      beneficiario: [
+        '( &nbsp; ) Comprovante atual de recebimento do benefício constando o nome e valor.',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      estagiario: [
+        '( &nbsp; ) Contrato de estágio ou termo de compromisso de bolsa, com período de vigência.',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      produtor: [
+        '( &nbsp; ) Declaração de Produtor Rural. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ],
+      socio: [
+        '( &nbsp; ) Último contracheque ou Pró-Labore.',
+        '( &nbsp; ) Declaração Anual do Simples Nacional de 2024.',
+        '( &nbsp; ) Declaração de Imposto de Renda Pessoa Jurídica, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil.',
+        '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
+        '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
+        '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
+      ]
+    };
+    
+    function generateChecklist() {
+      const familySize = parseInt(document.getElementById('family-size').value);
+      const studentName = document.getElementById('student-name').value;
+      const studentSituations = Array.from(document.querySelectorAll('#student-situation option:checked')).map(opt => opt.value);
+      const studentHealthExpenses = document.getElementById('student-health-expenses').value;
+      const studentEducationExpenses = document.getElementById('student-education-expenses').value;
+      const studentHousing = document.getElementById('student-housing').value;
+      const studentSingleOrphans = document.getElementById('student-single-orphans').value;
+      const studentCanguruScholarship = document.getElementById('student-canguru-scholarship').value;
+      const studentTransportScholarship = document.getElementById('student-transport-scholarship').value;
+      const locacaoImoveis = document.getElementById('locacao-imoveis').value;
+      const sitioChacara = document.getElementById('sitio-chacara').value;
+    
+      // Abre uma nova janela para exibir o checklist
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write('<html><head><title>Checklist de Documentos - Cadastro Único UFG</title>');
+      printWindow.document.write('<style>');
+      printWindow.document.write(`
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        h1 { text-align: center; color: #333; }
+        .instructions h2 { background-color: #007BFF; color: white; padding: 10px; margin: 0; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-left: 4px solid #007BFF; }
+        .member-section h3 { background-color: #007BFF; color: white; padding: 10px; margin-top: 20px; }
+        button { background: linear-gradient(135deg, #007BFF 0%, #0056b3 100%); color: #fff; border: none; padding: 10px 15px; margin-top: 20px; cursor: pointer; border-radius: 8px; }
+        button:hover { background: linear-gradient(135deg, #0056b3 0%, #003d80 100%); }
+      `);
+      printWindow.document.write('</style>');
+      printWindow.document.write('</head><body>');
+      printWindow.document.write('<h1>Checklist de Documentos - Cadastro Único UFG</h1>');
+    
+      if (studentName && studentSituations.length > 0) {
+        printWindow.document.write('<div class="instructions">');
+        printWindow.document.write('<h2>Instruções</h2>');
+        printWindow.document.write(`
+          <p></p>
+          <p><strong>ATENÇÃO</strong></p>
+          <p>a) Não é necessário que as declarações estejam autenticadas, mas é preciso que o declarante assine como no RG, que deve acompanhar as declarações;</p>
+          <p>b) No caso de extratos bancários emitidos via Internet que não contenha o nome do/a titular da conta, o/a estudante deverá identificar;</p>
+          <p>c) Em casos extremos, em que não seja possível apresentar um determinado documento, poderá ser apresentada uma declaração de ausência, devidamente justificada.</p>
+        `);
+        
+        printWindow.document.write('<div class="member-section">');
+        printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
+        printWindow.document.write('<ul>');
+        
+        const studentDocs = [];
+        studentSituations.forEach(situation => {
+          if (documentsBySituation[situation]) {
+            studentDocs.push(...documentsBySituation[situation]);
+          }
+        });
+        const uniqueStudentDocs = [...new Set(studentDocs)];
+        uniqueStudentDocs.forEach(doc => {
+          printWindow.document.write(`<li>${doc}</li>`);
+        });
+    
+        if (studentHealthExpenses === 'sim') {
+          printWindow.document.write('<li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
+        }
+        if (studentEducationExpenses === 'sim') {
+          printWindow.document.write('<li>( &nbsp; ) Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago.</li>');
+        }
+        if (studentHousing === 'alugada') {
+          printWindow.document.write('<li>( &nbsp; ) Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel.</li>');
+        } else if (studentHousing === 'financiada') {
+          printWindow.document.write('<li>( &nbsp; ) Comprovante da prestação do financiamento da casa própria atualizado.</li>');
+        } else if (studentHousing === 'cedida') {
+          printWindow.document.write('<li>( &nbsp; ) Declaração de imóvel cedido.</li>');
+        }
+        if (studentSingleOrphans === 'sim') {
+          printWindow.document.write('<li>( &nbsp; ) Certidão de óbito do pai/mãe.</li>');
+        }
+        if (studentCanguruScholarship === 'sim') {
+          printWindow.document.write('<li>( &nbsp; ) Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
+        }
+        if (studentTransportScholarship === 'sim') {
+          printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
+        }
+        printWindow.document.write('</ul>');
+        printWindow.document.write('</div>');
+      }
+    
+      for (let i = 0; i < familySize; i++) {
+        const memberName = document.getElementById(`member-name-${i}`).value;
+        const memberSituations = Array.from(document.querySelectorAll(`#member-situation-${i} option:checked`)).map(opt => opt.value);
+    
+        if (memberName && memberSituations.length > 0) {
+          printWindow.document.write('<div class="member-section">');
+          printWindow.document.write(`<h3>Documentos de ${memberName}</h3>`);
+          printWindow.document.write('<ul>');
+          
+          const memberDocs = [];
+          memberSituations.forEach(situation => {
+            if (documentsBySituation[situation]) {
+              memberDocs.push(...documentsBySituation[situation]);
+            }
+          });
+          const uniqueMemberDocs = [...new Set(memberDocs)];
+          uniqueMemberDocs.forEach(doc => {
+            printWindow.document.write(`<li>${doc}</li>`);
+          });
+          printWindow.document.write('</ul>');
+          printWindow.document.write('</div>');
+        }
+      }
+    
+      if (locacaoImoveis === 'sim' || sitioChacara === 'sim') {
+        printWindow.document.write('<div class="member-section">');
+        printWindow.document.write(`<h3>Outros documentos</h3>`);
+        printWindow.document.write('<ul>');
+        if (locacaoImoveis === 'sim') {
+          printWindow.document.write('<li>( &nbsp; )  Cópia do(s) contrato(s) de locação e/ou do(s) recibo(s) dos imóveis alugados de membro(os) da família.</li>');
+        }
+        if (sitioChacara === 'sim') {
+          printWindow.document.write('<li>( &nbsp; )  Escritura ou termo de uso emitido pelo INCRA das chácara(s), sitio(os) ou fazenda(as) de membro(os) da família.</li>');
+        }
+        printWindow.document.write('</ul>');
+        printWindow.document.write('</div>');
+      }
+    
+      // Botão para exportar como PDF
+      printWindow.document.write('<button id="exportPDFBtn">Exportar Checklist como PDF</button>');
+    
+      printWindow.document.write('</body></html>');
+      printWindow.document.close();
+    
+      // Aguarda um tempo para que o conteúdo e a biblioteca jsPDF (se incluída na janela pai) estejam carregados
+      setTimeout(function(){
+        var exportBtn = printWindow.document.getElementById('exportPDFBtn');
+        if(exportBtn){
+          exportBtn.addEventListener('click', function(){
+            // Utiliza a biblioteca jsPDF já carregada na janela pai
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            // Usa o conteúdo da janela aberta para gerar o PDF
+            doc.html(printWindow.document.body, {
+              callback: function (doc) {
+                doc.save('checklist.pdf');
+              },
+              x: 10,
+              y: 10
             });
-            
-            originalSelect.parentNode.insertBefore(wrapper, originalSelect);
-            originalSelect.classList.add('hidden-select');
+          });
         }
-
-        function generateFamilyInputs() {
-            const familySize = parseInt(document.getElementById('family-size').value);
-            const familyMembersDiv = document.getElementById('family-members');
-
-            if (isNaN(familySize) || familySize < 0) {
-                alert('Por favor, insira um número de pessoas na família. Caso o estudante seja o único membro do grupo familiar, colocar o valor 0 (zero).');
-                return;
-            }
-
-            familyMembersDiv.innerHTML = '';
-
-            const studentDiv = document.createElement('div');
-            studentDiv.classList.add('form-group');
-            studentDiv.innerHTML = `
-                <h3 class="section-title">Informações do Estudante</h3>
-                <div id="student-info">
-                    <div class="input-group">
-                        <label for="student-name">Nome do Estudante:</label>
-                        <input type="text" id="student-name" name="student-name" required>
-                    </div>
-                    <div class="input-group">
-                        <label>Situação do Estudante:</label>
-                        <select id="student-situation" multiple required data-label="Selecione todas as situações aplicáveis (clique para selecionar)">
-                            <option value="assalariado">Assalariado</option>
-                            <option value="autonomo">Autônomo/profissional liberal/trabalhador informal</option>
-                            <option value="aposentado">Aposentado ou pensionista</option>
-                            <option value="mei">Microempreendedor Individual (MEI)</option>
-                            <option value="desempregado">Desempregado</option>
-                            <option value="beneficiario">Beneficiário de programas sociais (Bolsa Família, BPC, outros)</option>
-                            <option value="estagiario">Estagiário</option>
-                            <option value="produtor">Produtor rural/lavrador</option>
-                            <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="student-health-expenses">Possui despesas com saúde?</label>
-                        <select id="student-health-expenses" name="student-health-expenses" required>
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label for="student-education-expenses">Possui despesas com educação?</label>
-                        <select id="student-education-expenses" name="student-education-expenses" required>
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-housing">Moradia:</label>
-                        <select id="student-housing">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="alugada">Alugada</option>
-                            <option value="cedida">Cedida</option>
-                            <option value="financiada">Financiada</option>
-                            <option value="propria">Própria</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-single-orphans">É solteiro(a) com pais falecidos?</label>
-                        <select id="student-single-orphans">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-canguru-scholarship">Pretende solicitar a bolsa Canguru?</label>
-                        <select id="student-canguru-scholarship">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="student-transport-scholarship">Pretende solicitar a bolsa Transporte?</label>
-                        <select id="student-transport-scholarship">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="form-group">	
-                        <label for="locacao-imoveis">Você ou alguem do núcleo familiar possui renda proveniente de locação de imóveis?</label>
-                        <select id="locacao-imoveis">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                    <div class="form-group">	
-                        <label for="sitio-chacara">Você ou alguem do núcleo familiar é proprietário de sítio(s), chácaras ou fazenda(s)?</label>
-                        <select id="sitio-chacara">
-                            <option value="">-- Escolha uma opção --</option>
-                            <option value="sim">Sim</option>
-                            <option value="nao">Não</option>
-                        </select>
-                    </div>
-                </div>
-            `;
-            createCustomSelect(studentDiv.querySelector('#student-situation'));
-            familyMembersDiv.appendChild(studentDiv);
-
-            const spacingDiv = document.createElement('div');
-            spacingDiv.classList.add('spacing');
-            familyMembersDiv.appendChild(spacingDiv);
-
-            for (let i = 0; i < familySize; i++) {
-                const memberDiv = document.createElement('div');
-                memberDiv.classList.add('form-group');
-
-                memberDiv.innerHTML = `
-                    <h3 class="section-title">Membro ${i + 1}</h3>
-                    <label>Nome:</label>
-                    <input type="text" placeholder="Nome do membro da família" id="member-name-${i}" required>
-                    <label>Situação:</label>
-                    <select id="member-situation-${i}" multiple data-label="Selecione todas as situações aplicáveis (clique para selecionar)">
-                        <option value="assalariado">Assalariado</option>
-                        <option value="autonomo">Autônomo/profissional liberal/trabalhador informal</option>
-                        <option value="aposentado">Aposentado ou pensionista</option>
-                        <option value="mei">Microempreendedor Individual (MEI)</option>
-                        <option value="desempregado">Desempregado</option>
-                        <option value="beneficiario">Beneficiário de Programas Sociais (Bolsa Família, BPC, outros)</option>
-                        <option value="estagiario">Estagiário</option>
-                        <option value="produtor">Produtor rural/lavrador</option>
-                        <option value="socio">Sócio ou dirigente de empresas (Microempresário)</option>
-                    </select>
-                `;
-                createCustomSelect(memberDiv.querySelector(`#member-situation-${i}`));
-                familyMembersDiv.appendChild(memberDiv);
-
-                const spacingDivMember = document.createElement('div');
-                spacingDivMember.classList.add('spacing');
-                familyMembersDiv.appendChild(spacingDivMember);
-            }
-
-            const generateChecklistButton = document.createElement('button');
-            generateChecklistButton.textContent = 'Gerar Checklist';
-            generateChecklistButton.onclick = generateChecklist;
-
-            familyMembersDiv.appendChild(generateChecklistButton);
-        }
-
-        const documentsBySituation = {
-            assalariado: [
-                '( &nbsp; ) Documentos de identificação e CPF.',
-                '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
-                '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-                '( &nbsp; ) Último contracheque.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            autonomo: [
-                '( &nbsp; ) Documentos de identificação e CPF.',
-                '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
-                '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-                '( &nbsp; ) Declaração de trabalhador autônomo, liberal ou informal, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            aposentado: [
-                '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente pode ser certidão de nascimento).',
-                '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
-                '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-                '( &nbsp; ) Extrato mais recente do pagamento de benefício (Aposentadoria, Pensão por Morte ou Alimentícia).',
-                '( &nbsp; ) Se pensão alimentícia informal: apresentar declaração de pensão alimentícia do responsável que conste o valor recebido, com cópia do RG do declarante, modelo disponível em https://aestudantil.goias.ufg.br/p/edital-unificado.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            mei: [
-                '( &nbsp; ) Documentos de identificação e CPF.',
-                '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
-                '( &nbsp; ) Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-                '( &nbsp; ) Declaração Anual do Simples Nacional (DASN).',
-                '( &nbsp; ) Declaração de MEI, modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            desempregado: [
-                '( &nbsp; ) Documentos de identificação e CPF (criança ou adolescente pode ser certidão de nascimento).',
-                '( &nbsp; ) Se for o caso, certidão de casamento, Certidão de Averbação de Divórcio ou declaração de separação.',
-                '( &nbsp; ) Se maior de 18 anos, Carteira de Trabalho e Previdência Social das páginas de identificação e do(s) contrato(s) de trabalho, mesmo que não haja registro, bem como a página subsequente ao último registro de trabalho. No caso de Carteira de Trabalho Digital, apresentar em PDF a carteira e o Extrato CAGED, emitido pelo aplicativo da Carteira de Trabalho Digital.',
-                '( &nbsp; ) Comprovante de seguro-desemprego – se estiver recebendo.',
-                '( &nbsp; ) Termo de rescisão de contrato – para demissões que ocorreram nos últimos 6 meses.',
-                '( &nbsp; ) Declaração de desempregado. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            beneficiario: [
-                '( &nbsp; ) Comprovante atual de recebimento do benefício constando o nome e valor.',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            estagiario: [
-                '( &nbsp; ) Contrato de estágio ou termo de compromisso de bolsa, com período de vigência.',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            produtor: [
-                '( &nbsp; ) Declaração de Produtor Rural. Modelo disponível em: https://aestudantil.goias.ufg.br/p/edital-unificado.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ],
-            socio: [
-                '( &nbsp; ) Último contracheque ou Pró-Labore.',
-                '( &nbsp; ) Declaração Anual do Simples Nacional de 2024.',
-                '( &nbsp; ) Declaração de Imposto de Renda Pessoa Jurídica, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil.',
-                '( &nbsp; ) Se for o caso, Declaração de Imposto de Renda Pessoa Física, exercício 2025, ano base 2024, acompanhada do recibo de entrega à Receita Federal do Brasil – <strong>se a pessoa não declarou, não é necessário apresentar.</strong>',
-                '( &nbsp; ) Relatório de Contas e Relacionamentos em Bancos (CSS) emitido por meio do sistema Registrato do Banco Central do Brasil (BACEN), disponível em: https://www.bcb.gov.br/meubc/registrato.',
-                '( &nbsp; ) Extratos de todas as contas bancária, física e/ou digital, corrente e/ou poupança, dos 03(três) últimos meses. Se não possuir conta, emitir nada consta por meio do link: https://www3.bcb.gov.br/nadaconsta/emitirCertidaoCCS.'
-            ]
-        };
-
-        function generateChecklist() {
-            const familySize = parseInt(document.getElementById('family-size').value);
-            const studentName = document.getElementById('student-name').value;
-            const studentSituations = Array.from(document.querySelectorAll('#student-situation option:checked')).map(opt => opt.value);
-            const studentHealthExpenses = document.getElementById('student-health-expenses').value;
-            const studentEducationExpenses = document.getElementById('student-education-expenses').value;
-            const studentHousing = document.getElementById('student-housing').value;
-            const studentSingleOrphans = document.getElementById('student-single-orphans').value;
-            const studentCanguruScholarship = document.getElementById('student-canguru-scholarship').value;
-            const studentTransportScholarship = document.getElementById('student-transport-scholarship').value;
-            const locacaoImoveis = document.getElementById('locacao-imoveis').value;
-            const sitioChacara = document.getElementById('sitio-chacara').value;
-
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write('<html><head><title>Checklist de Documentos - Cadastro Único UFG</title><style>');
-            printWindow.document.write(`
-                body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-                h1 { text-align: center; color: #333; }
-                .instructions h2 { background-color: #007BFF; color: white; padding: 10px; margin: 0; }
-                ul { list-style-type: none; padding: 0; }
-                li { background: #f4f4f4; margin: 5px 0; padding: 10px; border-left: 4px solid #007BFF; }
-                .member-section h3 { background-color: #007BFF; color: white; padding: 10px; margin-top: 20px; }
-            `);
-            printWindow.document.write('</style></head><body>');
-            printWindow.document.write('<h1>Checklist de Documentos - Cadastro Único UFG</h1>');
-
-            if (studentName && studentSituations.length > 0) {
-                printWindow.document.write('<div class="instructions">');
-                printWindow.document.write('<h2>Instruções</h2>');
-                printWindow.document.write(`
-                    <p></p>
-                    <p><strong>ATENÇÃO</strong></p>
-                    <p>a) Não é necessário que as declarações estejam autenticadas, mas é preciso que o declarante assine como no
-                    RG, que deve acompanhar as declarações;</p>
-                    <p>b) No caso de extratos bancários emitidos via Internet que não contenha o nome do/a titular da conta, o/a
-                    estudante deverá identificar;</p>
-                    <p>c) Em casos extremos, em que não seja possível apresentar um determinado documento, poderá ser apresentada
-                    uma declaração de ausência, devidamente justificada.</p>
-                `);
-                
-                printWindow.document.write('<div class="member-section">');
-                printWindow.document.write(`<h3>Documentos de ${studentName}</h3>`);
-                printWindow.document.write('<ul>');
-                
-                const studentDocs = [];
-                studentSituations.forEach(situation => {
-                    if (documentsBySituation[situation]) {
-                        studentDocs.push(...documentsBySituation[situation]);
-                    }
-                });
-                const uniqueStudentDocs = [...new Set(studentDocs)];
-                uniqueStudentDocs.forEach(doc => {
-                    printWindow.document.write(`<li>${doc}</li>`);
-                });
-
-                if (studentHealthExpenses === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; ) Relatório médico com diagnóstico de doença crônica, grave (conforme Lei no 11.052/2004), degenerativa ou deficiência e comprovante de despesas.</li>');
-                }
-                if (studentEducationExpenses === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; ) Comprovante mais recente de mensalidade(s) escolar(es). Não é necessário estar pago.</li>');
-                }
-                if (studentHousing === 'alugada') {
-                    printWindow.document.write('<li>( &nbsp; ) Contrato de locação, recibo de pagamento do aluguel. Na inexistência desses documentos, poderá ser apresentada declaração do locador com informações do imóvel e valor do aluguel.</li>');
-                } else if (studentHousing === 'financiada') {
-                    printWindow.document.write('<li>( &nbsp; ) Comprovante da prestação do financiamento da casa própria atualizado.</li>');
-                } else if (studentHousing === 'cedida') {
-                    printWindow.document.write('<li>( &nbsp; ) Declaração de imóvel cedido.</li>');
-                }
-                if (studentSingleOrphans === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; ) Certidão de óbito do pai/mãe.</li>');
-                }
-                if (studentCanguruScholarship === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; ) Em caso de gestante, apresentar exame que comprove o tempo de gestação.</li>');
-                }
-                if (studentTransportScholarship === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; ) Declaração de gastos com transporte do estudante.</li>');
-                }
-                printWindow.document.write('</ul>');
-                printWindow.document.write('</div>');
-            }
-
-            for (let i = 0; i < familySize; i++) {
-                const memberName = document.getElementById(`member-name-${i}`).value;
-                const memberSituations = Array.from(document.querySelectorAll(`#member-situation-${i} option:checked`)).map(opt => opt.value);
-
-                if (memberName && memberSituations.length > 0) {
-                    printWindow.document.write('<div class="member-section">');
-                    printWindow.document.write(`<h3>Documentos de ${memberName}</h3>`);
-                    printWindow.document.write('<ul>');
-                    
-                    const memberDocs = [];
-                    memberSituations.forEach(situation => {
-                        if (documentsBySituation[situation]) {
-                            memberDocs.push(...documentsBySituation[situation]);
-                        }
-                    });
-                    const uniqueMemberDocs = [...new Set(memberDocs)];
-                    uniqueMemberDocs.forEach(doc => {
-                        printWindow.document.write(`<li>${doc}</li>`);
-                    });
-                    printWindow.document.write('</ul>');
-                    printWindow.document.write('</div>');
-                }
-            }
-
-            if (locacaoImoveis === 'sim' || sitioChacara === 'sim') {
-                printWindow.document.write('<div class="member-section">');
-                printWindow.document.write(`<h3>Outros documentos</h3>`);
-                printWindow.document.write('<ul>');
-                if (locacaoImoveis === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; )  Cópia do(s) contrato(s) de locação e/ou do(s) recibo(s) dos imóveis alugados de membro(os) da família.</li>');
-                }
-                if (sitioChacara === 'sim') {
-                    printWindow.document.write('<li>( &nbsp; )  Escritura ou termo de uso emitido pelo INCRA das chácara(s), sitio(os) ou fazenda(as) de membro(os) da família.</li>');
-                }
-                printWindow.document.write('</ul>');
-                printWindow.document.write('</div>');
-            }
-
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-        }
-    </script>
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
